@@ -1,0 +1,87 @@
+
+<div class="row">
+
+
+    <div class="col-md-3 " style="margin-top: 10px;">
+        <div class="card card-user">
+            <div class="card-body">
+                <div>
+                    <div class="container">
+                        <h1>Consultar</h1>
+                        <form [formGroup]="consultaForm" (ngSubmit)="consultar()">   
+                            
+                                <div class="row">
+                                    <label>ID Empleado</label>
+                                    <input type="number" placeholder="idEmpleado" formControlName="idEmpleado">
+                                </div>
+                           
+                            <br>
+                           
+                                <div class="row">
+                                    <label>Semana</label>
+                                    <input type="number" placeholder="semana" formControlName="semana">
+                                </div>
+                            
+                            <br>
+                            <div class="row">
+                              
+                                <button type="submit" class="btn btn-dark">Consultar</button>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+ <div class="col-md-9 " style="margin-top: 10px;">
+        <div class="card card-user">
+            <div class="card-body">
+
+                <table class="table text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">ID EMPLEADO</th>
+                            <th scope="col">ID SERVICIO</th>
+                            <th scope="col">FECHA INICIO</th>
+                            <th scope="col">FECHA FIN</th>
+                            <th scope="col">SEMANA</th>
+                            <th scope="col">HORAS TRABAJADAS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let servicio of servicios">
+                            <td>{{servicio.id}}</td>
+                            <td>{{servicio.idEmpleado}}</td>
+                            <td>{{servicio.idServicio}}</td>
+                            <td>{{servicio.fechaI}}</td>
+                            <td>{{servicio.fechaF}}</td>
+                            <td>{{servicio.semana}}</td>
+                            <td>{{servicio.horasT}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Horas Extra:</td>
+                            <td class="table-success" *ngIf="showHorasE">{{horasE}}</td>
+                            <td class="table-success" *ngIf="showHorasN">{{horasE}}</td>
+                            <td>Total:</td>
+                            <td class="table-dark">{{total}}</td>
+                          </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
